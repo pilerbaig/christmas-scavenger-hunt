@@ -1,62 +1,70 @@
 /* =====================
-   Global Theme
+   CSS VARIABLES
 ===================== */
 :root {
     --bg: #f7f3ee;
-    --card: #ffffff;
+    --text: #2b2b2b;
     --accent: #8b2f2f;
     --accent-soft: #e6cfcf;
-    --text: #2b2b2b;
-    --muted: #6f6f6f;
     --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* =====================
-   Base
+   BASE
 ===================== */
 body {
     margin: 0;
     padding: 40px 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    /* background: var(--bg); */
     background: #5f351b;
     color: var(--text);
     text-align: center;
 }
 
-h1 {
+h1,
+h2 {
     font-family: "Dancing Script", cursive;
+}
+
+h1 {
     font-size: 50px;
     margin-bottom: 20px;
 }
 
 h2 {
-    font-family: "Dancing Script", cursive;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-/* Index page headings only */
+/* Index-only gold headings */
 body.home h1,
 body.home h2 {
     color: #e6b346;
-    /* warm gold */
     text-shadow:
         0 1px 0 rgba(255, 255, 255, 0.4),
         0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
+body.home {
+    background-image: url("assets/wood_tile.png");
+    background-repeat: repeat;
+    background-size: 600px 600px;
+    /* adjust as needed */
+    background-color: #5f351b;
+    /* fallback */
+}
+
 /* =====================
-   Buttons
+   BUTTONS (generic)
 ===================== */
 button {
-    background: var(--accent);
-    color: white;
     border: none;
     border-radius: 999px;
     padding: 12px 22px;
     font-size: 15px;
     cursor: pointer;
+    background: var(--accent);
+    color: #fff;
     transition: transform 0.15s ease, background 0.2s ease;
 }
 
@@ -71,7 +79,31 @@ button:disabled {
 }
 
 /* =====================
-   Day Container States
+   BACK BUTTON
+===================== */
+.back-btn {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    padding: 8px 16px;
+    font-family: "Dancing Script", cursive;
+    font-size: 18px;
+    text-decoration: none;
+    background: #fff3d6;
+    color: var(--text);
+    border-radius: 999px;
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    z-index: 10;
+}
+
+.back-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* =====================
+   DAY PAGE STATES
 ===================== */
 #day-container.closed .day-card {
     display: none;
@@ -82,11 +114,10 @@ button:disabled {
 }
 
 /* =====================
-   Envelope
+   ENVELOPE
 ===================== */
 .envelope {
     position: relative;
-    /* ← THIS */
     width: 360px;
     height: 220px;
     margin: 120px auto;
@@ -96,22 +127,17 @@ button:disabled {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeIn 0.4s ease;
 }
 
-/* decorative flap */
 .envelope::before {
     content: "";
     position: absolute;
-    top: 0px;
-    /* sit on top edge */
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
-
     width: 350px;
     height: 160px;
     background: #820000;
-
     clip-path: polygon(0 0, 50% 70%, 100% 0);
 }
 
@@ -120,40 +146,35 @@ button:disabled {
 }
 
 /* =====================
-   Stationery Card
+   STATIONERY CARD
 ===================== */
 .day-card {
     max-width: 600px;
     margin: 80px auto;
     padding: 48px 42px;
-
     background-color: #fff3d6;
     background-image:
         linear-gradient(to bottom,
             rgba(0, 0, 0, 0.025) 1px,
             transparent 1px);
     background-size: 100% 28px;
-
     border-radius: 16px;
     box-shadow:
         0 10px 28px rgba(0, 0, 0, 0.1),
         0 1px 0 rgba(0, 0, 0, 0.04);
-
-    animation: fadeIn 0.4s ease;
 }
 
 .day-card h1 {
-    margin-top: 0;
-    margin-bottom: 28px;
+    margin: 0 0 28px;
 }
 
 .day-card button {
-    display: inline-block;
     margin-top: 80px;
 }
 
+
 /* =====================
-   Hints
+   HINTS
 ===================== */
 #hints p {
     font-family: "Caveat", cursive;
@@ -173,59 +194,8 @@ button:disabled {
 }
 
 /* =====================
-   Animations
+   ADVENT GRID
 ===================== */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-
-/* =====================
-   Back Button
-===================== */
-.back-btn {
-    position: fixed;
-    top: 24px;
-    left: 24px;
-
-    padding: 8px 16px;
-    font-size: 14px;
-    text-decoration: none;
-
-    background: #fff3d6;
-    color: var(--text);
-
-    border-radius: 999px;
-    box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
-
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    z-index: 10;
-}
-
-.back-btn:hover {
-    transform: translateY(-1px);
-    box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.back-btn {
-    font-family: "Dancing Script", cursive;
-    font-size: 18px;
-}
-
-/* =====================
-   Advent Calendar Grid
-===================== */
-
 #calendar {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -235,25 +205,18 @@ button:disabled {
 }
 
 /* =====================
-   Door Frame (container)
+   DOOR FRAME (button)
 ===================== */
-
 #calendar button {
     position: relative;
     height: 200px;
     padding: 0;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-
     background: transparent;
+    border-radius: 16px;
     perspective: 900px;
 }
 
-/* =====================
-   Black Backing (always behind)
-===================== */
-
+/* Backing */
 #calendar button::before {
     content: "";
     position: absolute;
@@ -263,80 +226,51 @@ button:disabled {
     z-index: 0;
 }
 
-/* =====================
-   Frame Lip (always on top)
-===================== */
-
+/* Frame lip */
 #calendar button::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 16px;
-    pointer-events: none;
-
     box-shadow:
         inset 0 0 0 8px #a88b5e,
         0 12px 28px rgba(0, 0, 0, 0.18);
-
+    pointer-events: none;
     z-index: 1;
 }
 
 /* =====================
-   Door (animated slab)
+   DOOR
 ===================== */
-
 #calendar .door {
     position: absolute;
     inset: 8px;
     border-radius: 8px;
-
     background: linear-gradient(135deg, #7a4a2a, #5f351b);
     box-shadow:
         inset 0 0 0 2px rgba(255, 255, 255, 0.1),
         inset -6px 0 8px rgba(0, 0, 0, 0.25);
-
     transform-origin: left center;
     transform-style: preserve-3d;
     transition: transform 0.45s ease;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     z-index: 2;
 }
 
-/* =====================
-   Door Panel
-===================== */
-
 #calendar .panel {
     position: absolute;
-    top: 26px;
-    bottom: 26px;
-    left: 24px;
-    right: 24px;
-
+    inset: 26px 24px;
     border: 2px solid rgba(255, 255, 255, 0.12);
     border-radius: 4px;
-    pointer-events: none;
 }
 
-/* =====================
-   Day Number
-===================== */
-
 #calendar .door span {
-    position: relative;
     font-size: 30px;
     font-weight: 600;
     color: #f7e7c4;
-    z-index: 1;
 }
-
-/* =====================
-   Doorknob
-===================== */
 
 #calendar .knob {
     position: absolute;
@@ -345,7 +279,6 @@ button:disabled {
     width: 12px;
     height: 12px;
     transform: translateY(-50%);
-
     background: radial-gradient(circle at 30% 30%, #ffeaa0, #e2b84d);
     border-radius: 50%;
     box-shadow:
@@ -353,113 +286,60 @@ button:disabled {
         0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-/* =====================
-   Hover: Open Door (ALL doors)
-===================== */
-
-#calendar button:hover:not(.locked) .door {
+/* Hover open */
+#calendar button:not(.locked):hover .door {
     transform: rotateY(-45deg);
 }
 
-/* =====================
-   Locked State (visual only)
-===================== */
-
+/* Locked */
 #calendar button.locked {
     cursor: not-allowed;
 }
 
-#calendar button.locked .door {
-    filter: saturate(0) brightness(0.85);
-}
-
+#calendar button.locked .door,
 #calendar button.locked::before,
 #calendar button.locked::after {
     filter: saturate(0) brightness(0.9);
 }
 
-
-/* ===== Cat Theme Background ===== */
-.theme-cat {
-    position: relative;
-    background-color: var(--bg);
-    background: radial-gradient(circle at center,
-            rgba(255, 204, 17, 0.5),
-            transparent 80%),
-        var(--bg);
-}
-
-/* cat pattern layer */
-.theme-cat::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    background-image: url("assets/cat.png");
-    background-repeat: repeat;
-
-    /* tune subtlety */
-    background-size: 240px 240px;
-    background-position: 37px 61px;
-
-    opacity: 0.035;
-    pointer-events: none;
-    z-index: -1;
-}
-
-
-/* ===== Candle Theme Background ===== */
-.theme-candle {
-    position: relative;
-    background-color: var(--bg);
-    background: radial-gradient(circle at center,
-            rgba(255, 204, 17, 0.5),
-            transparent 80%),
-        var(--bg);
-}
-
-/* candle pattern layer */
-.theme-candle::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    background-image: url("assets/candle.png");
-    background-repeat: repeat;
-
-    /* tune subtlety */
-    background-size: 180px 180px;
-    background-position: 37px 61px;
-
-    opacity: 0.035;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* ===== Plant Theme Background ===== */
+/* =====================
+   THEME BACKGROUNDS
+===================== */
+.theme-cat,
+.theme-candle,
 .theme-plant {
     position: relative;
-    background-color: var(--bg);
-    background: radial-gradient(circle at center,
+    background:
+        radial-gradient(circle at center,
             rgba(255, 204, 17, 0.5),
             transparent 80%),
         var(--bg);
 }
 
-/* plant pattern layer */
+.theme-cat::before,
+.theme-candle::before,
 .theme-plant::before {
     content: "";
     position: fixed;
     inset: 0;
-
-    background-image: url("assets/plant.png");
     background-repeat: repeat;
-
-    /* tune subtlety */
-    background-size: 180px 180px;
     background-position: 37px 61px;
-
     opacity: 0.035;
     pointer-events: none;
     z-index: -1;
+}
+
+.theme-cat::before {
+    background-image: url("assets/cat.png");
+    background-size: 240px 240px;
+}
+
+.theme-candle::before {
+    background-image: url("assets/candle.png");
+    background-size: 180px 180px;
+}
+
+.theme-plant::before {
+    background-image: url("assets/plant.png");
+    background-size: 180px 180px;
 }
