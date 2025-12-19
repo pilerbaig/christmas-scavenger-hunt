@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
 <head>
     <meta charset="UTF-8" />
-    <title>Day 5</title>
+    <title>Day 4</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -16,20 +20,28 @@
     ← Back
 </a>
 
-<body>
-    <div class="day-card">
-        <h1>🎁 Day 5 🎁</h1>
+<body class="theme-snoopy">
+    <div id="day-container" class="closed">
 
-        <div id="hints"></div>
-        <button id="next-hint-btn">Need another hint</button>
+        <!-- Envelope -->
+        <div class="envelope">
+            <button id="open-btn">Open</button>
+        </div>
+
+        <!-- Stationery -->
+        <div class="day-card">
+            <h1>🐶 DAY 5 🐶</h1>
+            <div id="hints"></div>
+            <button id="next-hint-btn">Need another hint</button>
+        </div>
+
     </div>
-
 
     <script>
         const HINTS = [
-            "This gift waits above your eyes.",
-            "Near stories stacked in silent ties.",
-            "Look high where quiet shelves reside."
+            "Where coats and shoes are put to hide, look up where new treasures reside.",
+            "Behind the door, above your eyes, hides a friend that's small in size.",
+            "Inside a box, up near the top, where closet shelves are rarely swapped."
         ];
     </script>
     <script src="day.js"></script>

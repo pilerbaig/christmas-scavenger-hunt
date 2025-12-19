@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
 <head>
     <meta charset="UTF-8" />
@@ -16,20 +20,28 @@
     ← Back
 </a>
 
-<body>
-    <div class="day-card">
-        <h1>🎁 Day 4 🎁</h1>
+<body class="theme-prince">
+    <div id="day-container" class="closed">
 
-        <div id="hints"></div>
-        <button id="next-hint-btn">Need another hint</button>
+        <!-- Envelope -->
+        <div class="envelope">
+            <button id="open-btn">Open</button>
+        </div>
+
+        <!-- Stationery -->
+        <div class="day-card">
+            <h1>👑 DAY 4 👑</h1>
+            <div id="hints"></div>
+            <button id="next-hint-btn">Need another hint</button>
+        </div>
+
     </div>
-
 
     <script>
         const HINTS = [
-            "Cold air hums behind this door.",
-            "You open it daily, maybe more.",
-            "Look past the chill, behind the food."
+            "Words about worlds, far and wide, rest where numbers often hide.",
+            "Where notes are kept and work gets done, an enchanting tale rests near a sum.",
+            "At the desk where you study late, a tool that helps you calculate."
         ];
     </script>
     <script src="day.js"></script>

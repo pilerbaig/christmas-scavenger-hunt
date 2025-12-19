@@ -49,9 +49,7 @@ body.home {
     background-image: url("assets/wood_tile.png");
     background-repeat: repeat;
     background-size: 600px 600px;
-    /* adjust as needed */
     background-color: #5f351b;
-    /* fallback */
 }
 
 /* =====================
@@ -296,10 +294,40 @@ button:disabled {
     cursor: not-allowed;
 }
 
+#calendar button.locked:hover {
+    animation: lockedShake 0.35s ease;
+}
+
 #calendar button.locked .door,
 #calendar button.locked::before,
 #calendar button.locked::after {
     filter: saturate(0) brightness(0.9);
+}
+
+@keyframes lockedShake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-3px);
+    }
+
+    40% {
+        transform: translateX(3px);
+    }
+
+    60% {
+        transform: translateX(-2px);
+    }
+
+    80% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 /* =====================
@@ -307,7 +335,9 @@ button:disabled {
 ===================== */
 .theme-cat,
 .theme-candle,
-.theme-plant {
+.theme-plant,
+.theme-snoopy,
+.theme-prince {
     position: relative;
     background:
         radial-gradient(circle at center,
@@ -318,7 +348,9 @@ button:disabled {
 
 .theme-cat::before,
 .theme-candle::before,
-.theme-plant::before {
+.theme-plant::before,
+.theme-snoopy::before,
+.theme-prince::before {
     content: "";
     position: fixed;
     inset: 0;
@@ -341,5 +373,15 @@ button:disabled {
 
 .theme-plant::before {
     background-image: url("assets/plant.png");
+    background-size: 180px 180px;
+}
+
+.theme-snoopy::before {
+    background-image: url("assets/snoopy.png");
+    background-size: 180px 180px;
+}
+
+.theme-prince::before {
+    background-image: url("assets/crown.png");
     background-size: 180px 180px;
 }
