@@ -1,0 +1,465 @@
+/* =====================
+   Global Theme
+===================== */
+:root {
+    --bg: #f7f3ee;
+    --card: #ffffff;
+    --accent: #8b2f2f;
+    --accent-soft: #e6cfcf;
+    --text: #2b2b2b;
+    --muted: #6f6f6f;
+    --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================
+   Base
+===================== */
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    /* background: var(--bg); */
+    background: #5f351b;
+    color: var(--text);
+    text-align: center;
+}
+
+h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* Index page headings only */
+body.home h1,
+body.home h2 {
+    color: #e6b346;
+    /* warm gold */
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* =====================
+   Buttons
+===================== */
+button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 22px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    background: #ce0000;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    background: var(--accent-soft);
+    cursor: default;
+}
+
+/* =====================
+   Day Container States
+===================== */
+#day-container.closed .day-card {
+    display: none;
+}
+
+#day-container.open .envelope {
+    display: none;
+}
+
+/* =====================
+   Envelope
+===================== */
+.envelope {
+    position: relative;
+    /* ← THIS */
+    width: 360px;
+    height: 220px;
+    margin: 120px auto;
+    background: #ce0000;
+    border-radius: 4px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.4s ease;
+}
+
+/* decorative flap */
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    /* sit on top edge */
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 350px;
+    height: 160px;
+    background: #820000;
+
+    clip-path: polygon(0 0, 50% 70%, 100% 0);
+}
+
+.envelope #open-btn {
+    margin-top: 300px;
+}
+
+/* =====================
+   Stationery Card
+===================== */
+.day-card {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 48px 42px;
+
+    background-color: #fff3d6;
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.025) 1px,
+            transparent 1px);
+    background-size: 100% 28px;
+
+    border-radius: 16px;
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.1),
+        0 1px 0 rgba(0, 0, 0, 0.04);
+
+    animation: fadeIn 0.4s ease;
+}
+
+.day-card h1 {
+    margin-top: 0;
+    margin-bottom: 28px;
+}
+
+.day-card button {
+    display: inline-block;
+    margin-top: 80px;
+}
+
+/* =====================
+   Hints
+===================== */
+#hints p {
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+    line-height: 1.6;
+    margin: 18px 0;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: hintFade 0.4s ease forwards;
+}
+
+@keyframes hintFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================
+   Animations
+===================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =====================
+   Back Button
+===================== */
+.back-btn {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+
+    padding: 8px 16px;
+    font-size: 14px;
+    text-decoration: none;
+
+    background: #fff3d6;
+    color: var(--text);
+
+    border-radius: 999px;
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    z-index: 10;
+}
+
+.back-btn:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.back-btn {
+    font-family: "Dancing Script", cursive;
+    font-size: 18px;
+}
+
+/* =====================
+   Advent Calendar Grid
+===================== */
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px;
+    max-width: 900px;
+    margin: 60px auto 0;
+}
+
+/* =====================
+   Door Frame (container)
+===================== */
+
+#calendar button {
+    position: relative;
+    height: 200px;
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+
+    background: transparent;
+    perspective: 900px;
+}
+
+/* =====================
+   Black Backing (always behind)
+===================== */
+
+#calendar button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: #000;
+    z-index: 0;
+}
+
+/* =====================
+   Frame Lip (always on top)
+===================== */
+
+#calendar button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    pointer-events: none;
+
+    box-shadow:
+        inset 0 0 0 8px #a88b5e,
+        0 12px 28px rgba(0, 0, 0, 0.18);
+
+    z-index: 1;
+}
+
+/* =====================
+   Door (animated slab)
+===================== */
+
+#calendar .door {
+    position: absolute;
+    inset: 8px;
+    border-radius: 8px;
+
+    background: linear-gradient(135deg, #7a4a2a, #5f351b);
+    box-shadow:
+        inset 0 0 0 2px rgba(255, 255, 255, 0.1),
+        inset -6px 0 8px rgba(0, 0, 0, 0.25);
+
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+/* =====================
+   Door Panel
+===================== */
+
+#calendar .panel {
+    position: absolute;
+    top: 26px;
+    bottom: 26px;
+    left: 24px;
+    right: 24px;
+
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+/* =====================
+   Day Number
+===================== */
+
+#calendar .door span {
+    position: relative;
+    font-size: 30px;
+    font-weight: 600;
+    color: #f7e7c4;
+    z-index: 1;
+}
+
+/* =====================
+   Doorknob
+===================== */
+
+#calendar .knob {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+
+    background: radial-gradient(circle at 30% 30%, #ffeaa0, #e2b84d);
+    border-radius: 50%;
+    box-shadow:
+        inset -1px -1px 2px rgba(0, 0, 0, 0.25),
+        0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* =====================
+   Hover: Open Door (ALL doors)
+===================== */
+
+#calendar button:hover:not(.locked) .door {
+    transform: rotateY(-45deg);
+}
+
+/* =====================
+   Locked State (visual only)
+===================== */
+
+#calendar button.locked {
+    cursor: not-allowed;
+}
+
+#calendar button.locked .door {
+    filter: saturate(0) brightness(0.85);
+}
+
+#calendar button.locked::before,
+#calendar button.locked::after {
+    filter: saturate(0) brightness(0.9);
+}
+
+
+/* ===== Cat Theme Background ===== */
+.theme-cat {
+    position: relative;
+    background-color: var(--bg);
+    background: radial-gradient(circle at center,
+            rgba(255, 204, 17, 0.5),
+            transparent 80%),
+        var(--bg);
+}
+
+/* cat pattern layer */
+.theme-cat::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("assets/cat.png");
+    background-repeat: repeat;
+
+    /* tune subtlety */
+    background-size: 240px 240px;
+    background-position: 37px 61px;
+
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ===== Candle Theme Background ===== */
+.theme-candle {
+    position: relative;
+    background-color: var(--bg);
+    background: radial-gradient(circle at center,
+            rgba(255, 204, 17, 0.5),
+            transparent 80%),
+        var(--bg);
+}
+
+/* candle pattern layer */
+.theme-candle::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("assets/candle.png");
+    background-repeat: repeat;
+
+    /* tune subtlety */
+    background-size: 180px 180px;
+    background-position: 37px 61px;
+
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ===== Plant Theme Background ===== */
+.theme-plant {
+    position: relative;
+    background-color: var(--bg);
+    background: radial-gradient(circle at center,
+            rgba(255, 204, 17, 0.5),
+            transparent 80%),
+        var(--bg);
+}
+
+/* plant pattern layer */
+.theme-plant::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("assets/plant.png");
+    background-repeat: repeat;
+
+    /* tune subtlety */
+    background-size: 180px 180px;
+    background-position: 37px 61px;
+
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: -1;
+}

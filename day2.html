@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Day 1</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<script src="lock.js"></script>
+<script>
+    enforceDayLock(2);
+</script>
+
+<a href="index.html" class="back-btn">← Back to Calendar</a>
+
+
+<body class="theme-candle">
+    <div id="day-container" class="closed">
+
+        <!-- Envelope -->
+        <div class="envelope">
+            <button id="open-btn">Open</button>
+        </div>
+
+        <!-- Stationery -->
+        <div class="day-card">
+            <h1>🕯️ DAY 2 🕯️</h1>
+            <div id="hints"></div>
+            <button id="next-hint-btn">Need another hint</button>
+        </div>
+
+    </div>
+
+    <script>
+        const HINTS = [
+            "One looks sharp with a thoughtful stare, another gathers friends to share.",
+            "One sips brew, one brings the crew, both watch that which is meant for you",
+            "Behind the cats you pass each day: the bespectacled one and the crowded display."
+        ];
+    </script>
+    <script src="day.js"></script>
+</body>
+
+</html>

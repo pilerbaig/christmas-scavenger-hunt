@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Day 3</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<script src="lock.js"></script>
+<script>
+    enforceDayLock(3);
+</script>
+
+<a href="index.html" class="back-btn">
+    ← Back
+</a>
+
+<body class="theme-plant">
+    <div id="day-container" class="closed">
+
+        <!-- Envelope -->
+        <div class="envelope">
+            <button id="open-btn">Open</button>
+        </div>
+
+        <!-- Stationery -->
+        <div class="day-card">
+            <h1>🪴 DAY 3 🪴</h1>
+            <div id="hints"></div>
+            <button id="next-hint-btn">Need another hint</button>
+        </div>
+
+    </div>
+
+    <script>
+        const HINTS = [
+            "Something green that never grows, rests where quiet evenings go.",
+            "Where games are stacked and pieces hide, something leafy waits inside.",
+            "Search for the name behind the code, these plastic leaves make their abode."
+        ];
+    </script>
+    <script src="day.js"></script>
+</body>
+
+</html>
