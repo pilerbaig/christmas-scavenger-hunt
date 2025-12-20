@@ -1,7 +1,7 @@
 // ================= CONFIG =================
 
 // CHANGE THIS for real use
-const START_DATE = new Date("2025-12-19T00:00:00"); // past = unlocked for testing
+const START_DATE = new Date("2025-12-18T23:00:00"); // past = unlocked for testing
 
 // Time source
 const TIME_API =
