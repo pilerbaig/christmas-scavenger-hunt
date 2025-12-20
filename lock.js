@@ -1,4 +1,4 @@
-const START_DATE = new Date("2025-12-19T00:00:00"); // keep same as index
+const START_DATE = new Date("2025-12-18T23:00:00"); // keep same as index
 const TIME_API =
     "https://worldtimeapi.org/api/timezone/America/New_York";
 
